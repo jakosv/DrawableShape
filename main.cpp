@@ -2,14 +2,21 @@
 #include <fstream>
 #include "Circle.h"
 #include "Square.h"
+#include "Rhombus.h"
+#include "RightTriangle.h"
 
 using namespace std;
 
 int main()
 {
-    Shape* shapes[] = {new Shape(9), new Square(9), new Circle(9)};
+    const unsigned int shapesCount = 5;
+    Shape* shapes[] = {new Shape(9), 
+                       new Square(9), 
+                       new Circle(9), 
+                       new Rhombus(9),
+                       new RightTriangle(9)};
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < shapesCount; i++) {
         Shape* shape = shapes[i];
 
         switch(shape->getType()) {
@@ -21,6 +28,12 @@ int main()
                 break;
             case ShapeType::Circle:
                 std::cout << "Circle\n";
+                break;
+            case ShapeType::Rhombus:
+                std::cout << "Rhombus\n";
+                break;
+            case ShapeType::RightTriangle:
+                std::cout << "RightTriangle\n";
                 break;
             default:
                 break;
@@ -39,7 +52,7 @@ int main()
     // Other ostream output test
     ofstream file("fileExample.txt");
     if (file.is_open()) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < shapesCount; i++) {
             Shape* shape = shapes[i];
 
             switch(shape->getType()) {

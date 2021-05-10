@@ -9,6 +9,8 @@ enum class ShapeType {
     Circle = 0,
     Rectangle,
     Square,
+    Rhombus,
+    RightTriangle,
     Unknown
 };
 
